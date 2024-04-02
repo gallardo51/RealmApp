@@ -34,7 +34,7 @@ class TaskListViewController: UITableViewController {
         let addBarItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
-            action: #selector(addNewTask))
+            action: #selector(addButtonPressed))
         
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.standardAppearance = navBarAppearance
@@ -62,10 +62,8 @@ class TaskListViewController: UITableViewController {
         }
     }
     
-    @objc private func addNewTask() {
-        
+    @objc private func addButtonPressed() {
+//        showAlert()
     }
-
-
 }
 
