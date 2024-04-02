@@ -40,6 +40,26 @@ class TaskListViewController: UITableViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         navigationItem.rightBarButtonItems = [addBarItem, editButtonItem]
+        
+        //MARK: - Segmental Control
+        
+        let items = ["DATE", "A-Z"]
+        let segmentedControl = UISegmentedControl(items: items)
+        segmentedControl.frame = CGRect(x: 0, y: 0, width: 390, height: 32)
+        segmentedControl.addTarget(self, action: #selector(segmentAction(_:)), for: .valueChanged)
+        segmentedControl.selectedSegmentIndex = 0
+        view.addSubview(segmentedControl)
+    }
+    
+    @objc func segmentAction(_ segmentedControl: UISegmentedControl) {
+        switch (segmentedControl.selectedSegmentIndex) {
+        case 0:
+            break // Uno
+        case 1:
+            break // Dos
+        default:
+            break
+        }
     }
     
     @objc private func addNewTask() {
