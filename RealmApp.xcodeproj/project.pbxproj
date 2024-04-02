@@ -18,6 +18,7 @@
 		BA30A3CB2BBBFEF3005D9B36 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BA30A3CA2BBBFEF3005D9B36 /* Realm */; };
 		BA30A3CD2BBBFEF3005D9B36 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BA30A3CC2BBBFEF3005D9B36 /* RealmSwift */; };
 		BA30A3CF2BBC00F5005D9B36 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA30A3CE2BBC00F5005D9B36 /* TaskList.swift */; };
+		BA30A3D42BBC0CDF005D9B36 /* Extension + TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA30A3D32BBC0CDF005D9B36 /* Extension + TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		BA30A3BA2BBBE776005D9B36 /* RealmAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BA30A3C72BBBFB51005D9B36 /* Extension + AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + AlertController.swift"; sourceTree = "<group>"; };
 		BA30A3CE2BBC00F5005D9B36 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		BA30A3D32BBC0CDF005D9B36 /* Extension + TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + TableViewCell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,7 @@
 				BA30A3D02BBC01E9005D9B36 /* App */,
 				BA30A39B2BBBE775005D9B36 /* TaskListViewController.swift */,
 				BA30A3D12BBC01F6005D9B36 /* Models */,
-				BA30A3C72BBBFB51005D9B36 /* Extension + AlertController.swift */,
+				BA30A3D52BBC0EC8005D9B36 /* Extensions */,
 				BA30A3A22BBBE775005D9B36 /* LaunchScreen.storyboard */,
 				BA30A3D22BBC0206005D9B36 /* Resources */,
 			);
@@ -153,6 +155,15 @@
 				BA30A3A02BBBE775005D9B36 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BA30A3D52BBC0EC8005D9B36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA30A3C72BBBFB51005D9B36 /* Extension + AlertController.swift */,
+				BA30A3D32BBC0CDF005D9B36 /* Extension + TableViewCell.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA30A39C2BBBE775005D9B36 /* TaskListViewController.swift in Sources */,
+				BA30A3D42BBC0CDF005D9B36 /* Extension + TableViewCell.swift in Sources */,
 				BA30A3C82BBBFB51005D9B36 /* Extension + AlertController.swift in Sources */,
 				BA30A3982BBBE775005D9B36 /* AppDelegate.swift in Sources */,
 				BA30A3CF2BBC00F5005D9B36 /* TaskList.swift in Sources */,
