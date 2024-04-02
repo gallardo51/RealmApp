@@ -48,7 +48,7 @@ class TaskListViewController: UITableViewController {
         
         let items = ["DATE", "A-Z"]
         let segmentedControl = UISegmentedControl(items: items)
-        segmentedControl.frame = CGRect(x: 0, y: 0, width: 390, height: 32)
+        segmentedControl.frame = CGRect(x: 0, y: 0, width: 393, height: 32)
         segmentedControl.addTarget(self, action: #selector(segmentAction(_:)), for: .valueChanged)
         segmentedControl.selectedSegmentIndex = 0
         view.addSubview(segmentedControl)
@@ -66,7 +66,7 @@ class TaskListViewController: UITableViewController {
     }
     
     @objc private func addButtonPressed() {
-//        showAlert()
+        showAlert()
     }
 }
 

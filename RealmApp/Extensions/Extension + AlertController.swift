@@ -21,7 +21,7 @@ extension UIAlertController {
             completion(newValue)
         }
         
-        let cancelAction = UIAlertAction(title: doneButton, style: .destructive)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         
         addAction(saveAction)
         addAction(cancelAction)
