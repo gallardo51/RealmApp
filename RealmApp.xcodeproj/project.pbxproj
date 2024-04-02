@@ -111,8 +111,7 @@
 			children = (
 				BA30A3D02BBC01E9005D9B36 /* App */,
 				BA30A39B2BBBE775005D9B36 /* TaskListViewController.swift */,
-				BA30A3D62BBC0F45005D9B36 /* StorageManager.swift */,
-				BA30A3D82BBC13E7005D9B36 /* DataManager.swift */,
+				BA30A3DA2BBC16ED005D9B36 /* Services */,
 				BA30A3D12BBC01F6005D9B36 /* Models */,
 				BA30A3D52BBC0EC8005D9B36 /* Extensions */,
 				BA30A3A22BBBE775005D9B36 /* LaunchScreen.storyboard */,
@@ -170,6 +169,15 @@
 				BA30A3D32BBC0CDF005D9B36 /* Extension + TableViewCell.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA30A3DA2BBC16ED005D9B36 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BA30A3D62BBC0F45005D9B36 /* StorageManager.swift */,
+				BA30A3D82BBC13E7005D9B36 /* DataManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskListViewController: UITableViewController {
+    
+    private var taskLists: Results<TaskList>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,3 +70,35 @@ class TaskListViewController: UITableViewController {
     }
 }
 
+//MARK: - Private methods
+
+extension TaskListViewController {
+    private func showAlert(with taskList: TaskList? = nil, completion: (() -> Void)? = nil) {
+        let title = taskList != nil ? "Edit List" : "New List"
+        
+        let alert = UIAlertController.createAlert(withTitle: title, andMessage: "Please, set title for new task list")
+        
+        alert.action(with: taskList) { newValue in
+            if let taskList = taskList, let completion = completion {
+                StorageManager.shared.rename(taskList, to: newValue)
+                completion()
+            } else {
+                self.save(taskList: newValue)
+            }
+        }
+        present(alert, animated: true)
+    }
+    
+    private func save(taskList: String) {
+        let taskList = TaskList(value: [taskList])
+        StorageManager.shared.save(taskList)
+        let rowIndex = IndexPath(row: taskLists.index(of: taskList) ?? 0, section: 0)
+        tableView.insertRows(at: [rowIndex], with: .automatic)
+    }
+    
+    private func createTempData() {
+        DataManager.shared.createTempData {
+            self.tableView.reloadData()
+        }
+    }
+}
