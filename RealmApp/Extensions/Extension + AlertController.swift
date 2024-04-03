@@ -12,8 +12,8 @@ extension UIAlertController {
         UIAlertController(title: title, message: message, preferredStyle: .alert)
     }
     
-    func action(with taskList: TaskList?, completion: @escaping(String) -> Void) {
-        let doneButton = taskList == nil ? "Save" : "Delete"
+    func action(with taskList: TaskList?, completion: @escaping (String) -> Void) {
+        let doneButton = taskList == nil ? "Save" : "Update"
         
         let saveAction = UIAlertAction(title: doneButton, style: .default) { _ in
             guard let newValue = self.textFields?.first?.text else { return }

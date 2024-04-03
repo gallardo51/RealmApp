@@ -11,11 +11,61 @@ import RealmSwift
 class TaskListViewController: UITableViewController {
     
     private var taskLists: Results<TaskList>!
+    private let cellID = "TaskListCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        createTempData()
         setNavBar()
+        taskLists = StorageManager.shared.realm.objects(TaskList.self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    //MARK: - TableView Data source
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        taskLists.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let taskList = taskLists[indexPath.row]
+        cell.configure(with: taskList)
+        return cell
+    }
+    
+    //MARK: - TableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let taskList = taskLists[indexPath.row]
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            StorageManager.shared.delete(taskList)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, isDone in
+            self.showAlert(with: taskList) {
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            isDone(true)
+        }
+        
+        let doneAction = UIContextualAction(style: .normal, title: "Done") { _, _, isDone in
+            StorageManager.shared.done(taskList)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            isDone(true)
+        }
+        
+        editAction.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+        doneAction.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        return UISwipeActionsConfiguration(actions: [doneAction, editAction, deleteAction])
     }
     
     private func setNavBar() {
@@ -46,24 +96,24 @@ class TaskListViewController: UITableViewController {
         
         //MARK: - Segmental Control
         
-        let items = ["DATE", "A-Z"]
-        let segmentedControl = UISegmentedControl(items: items)
-        segmentedControl.frame = CGRect(x: 0, y: 0, width: 393, height: 32)
-        segmentedControl.addTarget(self, action: #selector(segmentAction(_:)), for: .valueChanged)
-        segmentedControl.selectedSegmentIndex = 0
-        view.addSubview(segmentedControl)
+//        let items = ["DATE", "A-Z"]
+//        let segmentedControl = UISegmentedControl(items: items)
+//        segmentedControl.frame = CGRect(x: 0, y: 0, width: 393, height: 32)
+//        segmentedControl.addTarget(self, action: #selector(segmentAction(_:)), for: .valueChanged)
+//        segmentedControl.selectedSegmentIndex = 0
+//        view.addSubview(segmentedControl)
     }
     
-    @objc func segmentAction(_ segmentedControl: UISegmentedControl) {
-        switch (segmentedControl.selectedSegmentIndex) {
-        case 0:
-            break // Uno
-        case 1:
-            break // Dos
-        default:
-            break
-        }
-    }
+//    @objc func segmentAction(_ segmentedControl: UISegmentedControl) {
+//        switch (segmentedControl.selectedSegmentIndex) {
+//        case 0:
+//            break // Uno
+//        case 1:
+//            break // Dos
+//        default:
+//            break
+//        }
+//    }
     
     @objc private func addButtonPressed() {
         showAlert()

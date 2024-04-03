@@ -27,7 +27,7 @@ class DataManager {
             milk.name = "Milk"
             milk.note = "2L"
             
-            let bread = Task(value: ["Bread", "", Data(), true])
+            let bread = Task(value: ["Bread", "", Date(), true])
             let apples = Task(value: ["name": "Apples", "note": "5kg"])
             
             shoppingList.tasks.append(milk)
