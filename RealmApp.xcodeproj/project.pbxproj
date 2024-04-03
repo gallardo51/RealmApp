@@ -21,6 +21,7 @@
 		BA30A3D42BBC0CDF005D9B36 /* Extension + TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA30A3D32BBC0CDF005D9B36 /* Extension + TableViewCell.swift */; };
 		BA30A3D72BBC0F45005D9B36 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA30A3D62BBC0F45005D9B36 /* StorageManager.swift */; };
 		BA30A3D92BBC13E7005D9B36 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA30A3D82BBC13E7005D9B36 /* DataManager.swift */; };
+		BA63BEAB2BBDC9B100F375F2 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA63BEAA2BBDC9B100F375F2 /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		BA30A3D32BBC0CDF005D9B36 /* Extension + TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + TableViewCell.swift"; sourceTree = "<group>"; };
 		BA30A3D62BBC0F45005D9B36 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		BA30A3D82BBC13E7005D9B36 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BA63BEAA2BBDC9B100F375F2 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				BA30A3D02BBC01E9005D9B36 /* App */,
 				BA30A39B2BBBE775005D9B36 /* TaskListViewController.swift */,
+				BA63BEAA2BBDC9B100F375F2 /* TaskViewController.swift */,
 				BA30A3DA2BBC16ED005D9B36 /* Services */,
 				BA30A3D12BBC01F6005D9B36 /* Models */,
 				BA30A3D52BBC0EC8005D9B36 /* Extensions */,
@@ -322,6 +325,7 @@
 				BA30A3C82BBBFB51005D9B36 /* Extension + AlertController.swift in Sources */,
 				BA30A3D92BBC13E7005D9B36 /* DataManager.swift in Sources */,
 				BA30A3D72BBC0F45005D9B36 /* StorageManager.swift in Sources */,
+				BA63BEAB2BBDC9B100F375F2 /* TaskViewController.swift in Sources */,
 				BA30A3982BBBE775005D9B36 /* AppDelegate.swift in Sources */,
 				BA30A3CF2BBC00F5005D9B36 /* TaskList.swift in Sources */,
 			);
