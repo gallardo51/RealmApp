@@ -86,7 +86,6 @@ class TaskViewController: UITableViewController {
         let doneAction = UIContextualAction(style: .normal, title: doneTitle) { _, _, isDone in
             StorageManager.shared.done(task)
             let indexPathCurrentTask = IndexPath(row: self.currentTasks.count - 1, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .automatic)
             let indexPathCompletedTask = IndexPath(row: self.completedTasks.count - 1, section: 1)
             let destinationIndexRow = indexPath.section == 0 ? indexPathCompletedTask : indexPathCurrentTask
             tableView.moveRow(at: indexPath, to: destinationIndexRow)
