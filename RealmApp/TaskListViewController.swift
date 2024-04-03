@@ -41,6 +41,10 @@ class TaskListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let taskVC = TaskViewController()
+        let taskList = taskLists[indexPath.row]
+        taskVC.taskList = taskList
+        show(taskVC, sender: taskList)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

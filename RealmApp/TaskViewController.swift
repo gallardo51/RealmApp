@@ -20,6 +20,7 @@ class TaskViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = taskList.name
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cell)
         setupNavBar()
     }
     
@@ -32,8 +33,8 @@ class TaskViewController: UITableViewController {
         
         navigationItem.rightBarButtonItems = [addButton, editButtonItem]
         
-        currentTasks = taskList.tasks.filter("isCompleted = false")
-        completedTasks = taskList.tasks.filter("isCompleted = true")
+        currentTasks = taskList.tasks.filter("isComplete = false")
+        completedTasks = taskList.tasks.filter("isComplete = true")
     }
     
     @objc private func addButtonPressed() {
@@ -82,7 +83,7 @@ class TaskViewController: UITableViewController {
         
         let doneTitle = indexPath.section == 0 ? "Done" : "Undone"
         
-        let doneAction = UIContextualAction(style: .normal, title: "Done") { _, _, isDone in
+        let doneAction = UIContextualAction(style: .normal, title: doneTitle) { _, _, isDone in
             StorageManager.shared.done(task)
             let indexPathCurrentTask = IndexPath(row: self.currentTasks.count - 1, section: 0)
             tableView.reloadRows(at: [indexPath], with: .automatic)
